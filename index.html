@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="img/frames/000.webp">
-  <link rel="stylesheet" href="styles.css?v=1">
+  <link rel="stylesheet" href="styles.css?v=2">
 </head>
 <body class="is-loading">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -161,28 +161,33 @@
     </div>
     <ol class="obs">
       <li class="obs__item" data-obs="0">
+        <img class="obs__img" src="img/bio-3-6.jpg" width="720" height="860" alt="Tronco de eucalipto em floresta cultivada" loading="lazy">
         <span class="obs__n">01</span>
         <h3>Uma floresta cultivada de forma responsável.</h3>
         <p>Toda grande transformação começa aqui, em uma floresta cuidadosamente cultivada.</p>
       </li>
       <li class="obs__item" data-obs="1">
+        <img class="obs__img" src="img/bio-6-2.jpg" width="720" height="860" alt="Anéis de crescimento no interior do tronco" loading="lazy">
         <span class="obs__n">02</span>
         <h3>Cada árvore cresce ao longo dos anos.</h3>
         <p>Onde a natureza, ao longo dos anos, constrói silenciosamente um dos materiais mais extraordinários do planeta.</p>
       </li>
       <li class="obs__item" data-obs="2">
+        <img class="obs__img" src="img/bio-8-6.jpg" width="720" height="860" alt="Feixe de fibras da madeira" loading="lazy">
         <span class="obs__n">03</span>
         <h3>Fibras de celulose.</h3>
         <p>Uma estrutura extraordinária composta por fibras de celulose, lignina e hemicelulose.</p>
         <ul class="chips"><li class="on">celulose</li><li>hemicelulose</li><li>lignina</li></ul>
       </li>
       <li class="obs__item" data-obs="3">
+        <img class="obs__img" src="img/bio-10-6.jpg" width="720" height="860" alt="Lignina envolvendo as fibras" loading="lazy">
         <span class="obs__n">04</span>
         <h3>A primeira etapa de uma jornada fascinante.</h3>
         <p>No digestor, temperatura, pressão, tempo e produtos químicos são controlados para separar a lignina das fibras de celulose.</p>
         <ul class="chips"><li>celulose</li><li>hemicelulose</li><li class="on">lignina</li></ul>
       </li>
     </ol>
+    <p class="swipe-hint" aria-hidden="true"><span data-obs-n>01</span> / 04 · arraste para o lado <svg><use href="#arrow"/></svg></p>
   </div>
 </section>
 
@@ -423,6 +428,11 @@
   <small>© 2026 Celulose 360°</small>
 </footer>
 
+<div class="dock" data-dock aria-label="Atalhos">
+  <a class="btn btn--leaf" href="https://celulose360.com" target="_blank" rel="noopener">Acessar conteúdo gratuito <svg><use href="#arrow"/></svg></a>
+  <button class="dock__play" data-film-dock aria-label="Assistir ao vídeo da floresta com som"><svg><use href="#play"/></svg></button>
+</div>
+
 <div class="film" data-film-panel hidden>
   <button class="film__x" data-film-close aria-label="Fechar">×</button>
   <video playsinline controls preload="none" data-film-video></video>
@@ -431,6 +441,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="main.js?v=1"></script>
+<script src="main.js?v=2"></script>
 </body>
 </html>

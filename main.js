@@ -185,6 +185,20 @@
   });
   scope.addEventListener('pointerleave', () => lens.forEach(im => { im.style.transform = ''; }));
 
+  /* contador do carrossel no mobile */
+  const obsList = $('.obs'), obsN = $('[data-obs-n]');
+  obsList.addEventListener('scroll', () => {
+    const w = obsList.firstElementChild.offsetWidth + 12;
+    obsN.textContent = String(clamp(Math.round(obsList.scrollLeft / w) + 1, 1, 4)).padStart(2, '0');
+  }, { passive: true });
+
+  /* barra fixa no mobile: aparece depois do hero, some no CTA final */
+  const dock = $('[data-dock]'), ctaSec = $('#contato');
+  let ctaIn = false;
+  new IntersectionObserver(es => { ctaIn = es[0].isIntersecting; updDock(); }).observe(ctaSec);
+  const updDock = () => dock.classList.toggle('is-on', scrollY > innerHeight * .9 && !ctaIn && panel.hidden);
+  addEventListener('scroll', updDock, { passive: true });
+
   /* ---------- elo na cadeia ---------- */
   const ELO = [
     ['Trilhas de aprendizado', 'Conhecimento Técnico: processos industriais, ecossistema florestal, sustentabilidade e tecnologia. Tudo sobre a cadeia da celulose, para quem está começando.'],
@@ -224,7 +238,7 @@
     fv.play().catch(() => {});
   };
   const closeFilm = () => { fv.pause(); fv.removeAttribute('src'); fv.load(); film.hidden = true; lock(false); };
-  $('[data-film]').addEventListener('click', () => openFilm('video/floresta.mp4', 'img/floresta-poster.jpg'));
+  $$('[data-film], [data-film-dock]').forEach(b => b.addEventListener('click', () => openFilm('video/floresta.mp4', 'img/floresta-poster.jpg')));
   $('[data-junia]').addEventListener('click', () => openFilm('video/junia.mp4', 'img/junia-poster.jpg'));
   $('[data-film-close]').addEventListener('click', closeFilm);
   film.addEventListener('click', e => { if (e.target === film) closeFilm(); });
