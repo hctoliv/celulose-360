@@ -9,12 +9,12 @@
   <meta property="og:description" content="Conhecimento que transforma a indústria. Da floresta ao mundo.">
   <meta property="og:image" content="img/conhecimento.jpg">
   <meta name="theme-color" content="#0B1A13">
-  <link rel="icon" href="img/logo-icon.png">
+  <link rel="icon" href="img/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="img/frames/000.webp">
-  <link rel="stylesheet" href="styles.css?v=2">
+  <link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body class="is-loading">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -44,7 +44,7 @@
 </div>
 
 <header class="hd" data-hd>
-  <a class="hd__logo" href="#topo" aria-label="Celulose 360°, início"><img src="img/logo.png" width="555" height="413" alt="Celulose 360°"></a>
+  <a class="hd__logo" href="#topo" aria-label="Celulose 360°, início"><img src="img/logo.webp" width="242" height="180" alt="Celulose 360°" fetchpriority="high"></a>
   <nav class="hd__nav" aria-label="Principal">
     <a href="#natureza">Natureza</a>
     <a href="#jornada">Jornada</a>
@@ -131,7 +131,7 @@
     </blockquote>
   </div>
 
-  <div class="ribbon" aria-hidden="true">
+  <div class="ribbon" aria-hidden="true" data-anim>
     <div class="ribbon__track">
       <span>Conteúdo especializado</span><i></i><span>Foco na prática</span><i></i><span>Resultados reais</span><i></i><span>Desenvolvendo competências</span><i></i><span>Gerando valor</span><i></i>
       <span>Conteúdo especializado</span><i></i><span>Foco na prática</span><i></i><span>Resultados reais</span><i></i><span>Desenvolvendo competências</span><i></i><span>Gerando valor</span><i></i>
@@ -148,10 +148,10 @@
   <div class="nat__grid">
     <div class="scope" data-scope>
       <div class="scope__lens">
-        <img class="is-on" src="img/bio-3-6.jpg" width="720" height="860" alt="Tronco de eucalipto em floresta cultivada" data-lens="0">
-        <img src="img/bio-6-2.jpg" width="720" height="860" alt="Anéis de crescimento no interior do tronco" data-lens="1" loading="lazy">
-        <img src="img/bio-8-6.jpg" width="720" height="860" alt="Feixe de fibras da madeira" data-lens="2" loading="lazy">
-        <img src="img/bio-10-6.jpg" width="720" height="860" alt="Lignina envolvendo as fibras" data-lens="3" loading="lazy">
+        <img class="is-on" src="img/bio-3-6.webp" width="720" height="860" alt="Tronco de eucalipto em floresta cultivada" data-lens="0">
+        <img src="img/bio-6-2.webp" width="720" height="860" alt="Anéis de crescimento no interior do tronco" data-lens="1" loading="lazy" decoding="async">
+        <img src="img/bio-8-6.webp" width="720" height="860" alt="Feixe de fibras da madeira" data-lens="2" loading="lazy" decoding="async">
+        <img src="img/bio-10-6.webp" width="720" height="860" alt="Lignina envolvendo as fibras" data-lens="3" loading="lazy" decoding="async">
         <svg class="scope__grid" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="49.4" fill="none"/><path d="M50 2v8M50 90v8M2 50h8M90 50h8"/><path d="M30 50h40M50 30v40" stroke-dasharray="1 2"/></svg>
       </div>
       <div class="scope__meta">
@@ -161,26 +161,26 @@
     </div>
     <ol class="obs">
       <li class="obs__item" data-obs="0">
-        <img class="obs__img" src="img/bio-3-6.jpg" width="720" height="860" alt="Tronco de eucalipto em floresta cultivada" loading="lazy">
+        <img class="obs__img" src="img/bio-3-6.webp" width="720" height="860" alt="Tronco de eucalipto em floresta cultivada" loading="lazy" decoding="async">
         <span class="obs__n">01</span>
         <h3>Uma floresta cultivada de forma responsável.</h3>
         <p>Toda grande transformação começa aqui, em uma floresta cuidadosamente cultivada.</p>
       </li>
       <li class="obs__item" data-obs="1">
-        <img class="obs__img" src="img/bio-6-2.jpg" width="720" height="860" alt="Anéis de crescimento no interior do tronco" loading="lazy">
+        <img class="obs__img" src="img/bio-6-2.webp" width="720" height="860" alt="Anéis de crescimento no interior do tronco" loading="lazy" decoding="async">
         <span class="obs__n">02</span>
         <h3>Cada árvore cresce ao longo dos anos.</h3>
         <p>Onde a natureza, ao longo dos anos, constrói silenciosamente um dos materiais mais extraordinários do planeta.</p>
       </li>
       <li class="obs__item" data-obs="2">
-        <img class="obs__img" src="img/bio-8-6.jpg" width="720" height="860" alt="Feixe de fibras da madeira" loading="lazy">
+        <img class="obs__img" src="img/bio-8-6.webp" width="720" height="860" alt="Feixe de fibras da madeira" loading="lazy" decoding="async">
         <span class="obs__n">03</span>
         <h3>Fibras de celulose.</h3>
         <p>Uma estrutura extraordinária composta por fibras de celulose, lignina e hemicelulose.</p>
         <ul class="chips"><li class="on">celulose</li><li>hemicelulose</li><li>lignina</li></ul>
       </li>
       <li class="obs__item" data-obs="3">
-        <img class="obs__img" src="img/bio-10-6.jpg" width="720" height="860" alt="Lignina envolvendo as fibras" loading="lazy">
+        <img class="obs__img" src="img/bio-10-6.webp" width="720" height="860" alt="Lignina envolvendo as fibras" loading="lazy" decoding="async">
         <span class="obs__n">04</span>
         <h3>A primeira etapa de uma jornada fascinante.</h3>
         <p>No digestor, temperatura, pressão, tempo e produtos químicos são controlados para separar a lignina das fibras de celulose.</p>
@@ -206,7 +206,7 @@
 
     <div class="jor__track" data-jor-track>
       <article class="st">
-        <div class="st__img"><img src="img/etapa0.jpg" width="1086" height="369" alt="Floresta de eucalipto, toras e a fábrica ao fundo" loading="lazy"></div>
+        <div class="st__img"><img src="img/etapa0.webp" width="1086" height="369" alt="Floresta de eucalipto, toras e a fábrica ao fundo" loading="lazy" decoding="async"></div>
         <div class="st__body">
           <span class="st__n">01</span>
           <h3><span>Da</span> floresta</h3>
@@ -215,7 +215,7 @@
         </div>
       </article>
       <article class="st">
-        <div class="st__img"><img src="img/etapa1.jpg" width="1086" height="579" alt="Caminhão com toras de eucalipto na balança da fábrica" loading="lazy"></div>
+        <div class="st__img"><img src="img/etapa1.webp" width="1086" height="579" alt="Caminhão com toras de eucalipto na balança da fábrica" loading="lazy" decoding="async"></div>
         <div class="st__body">
           <span class="st__n">02</span>
           <h3><span>Da tora</span> à indústria</h3>
@@ -223,7 +223,7 @@
         </div>
       </article>
       <article class="st">
-        <div class="st__img"><img src="img/etapa2.jpg" width="1086" height="485" alt="Esteira de cavacos subindo até o digestor" loading="lazy"></div>
+        <div class="st__img"><img src="img/etapa2.webp" width="1086" height="485" alt="Esteira de cavacos subindo até o digestor" loading="lazy" decoding="async"></div>
         <div class="st__body">
           <span class="st__n">03</span>
           <h3><span>Da madeira</span> à fibra</h3>
@@ -232,7 +232,7 @@
         </div>
       </article>
       <article class="st">
-        <div class="st__img"><img src="img/etapa3.jpg" width="1086" height="543" alt="Linha de formação e enfardamento das folhas de celulose" loading="lazy"></div>
+        <div class="st__img"><img src="img/etapa3.webp" width="1086" height="543" alt="Linha de formação e enfardamento das folhas de celulose" loading="lazy" decoding="async"></div>
         <div class="st__body">
           <span class="st__n">04</span>
           <h3><span>Da fibra</span> à celulose</h3>
@@ -241,7 +241,7 @@
         </div>
       </article>
       <article class="st">
-        <div class="st__img"><img src="img/etapa4.jpg" width="1086" height="463" alt="Fardos de celulose sendo carregados no navio" loading="lazy"></div>
+        <div class="st__img"><img src="img/etapa4.webp" width="1086" height="463" alt="Fardos de celulose sendo carregados no navio" loading="lazy" decoding="async"></div>
         <div class="st__body">
           <span class="st__n">05</span>
           <h3><span>Da fábrica</span> ao mundo</h3>
@@ -297,9 +297,11 @@
   <div class="why">
     <div class="why__ring" data-ring aria-hidden="true">
       <svg viewBox="0 0 400 400">
-        <defs><path id="ringtxt" d="M200 200m-168 0a168 168 0 1 1 336 0a168 168 0 1 1 -336 0"/></defs>
         <circle cx="200" cy="200" r="150" class="why__base"/>
         <circle cx="200" cy="200" r="150" class="why__arc" data-arc/>
+      </svg>
+      <svg class="why__txt" viewBox="0 0 400 400" data-anim>
+        <defs><path id="ringtxt" d="M200 200m-168 0a168 168 0 1 1 336 0a168 168 0 1 1 -336 0"/></defs>
         <text><textPath href="#ringtxt">da floresta à indústria · do mercado global à sustentabilidade · visão 360° do setor · </textPath></text>
       </svg>
       <div class="why__deg"><span data-deg>0</span>°</div>
@@ -323,7 +325,7 @@
   <article class="case" data-case data-rise>
     <div class="case__card">
       <div class="case__media case__media--video">
-        <video src="video/junia.mp4" poster="img/junia-poster.jpg" playsinline muted loop preload="none" data-autovid></video>
+        <video data-src="video/junia.mp4" poster="img/junia-poster.webp" data-src-m="video/junia-m.mp4" playsinline muted loop preload="none" data-autovid></video>
         <button class="case__sound" data-sound aria-label="Ativar som"><svg><use href="#mute"/></svg><span>Ativar som</span></button>
       </div>
       <div class="case__body">
@@ -334,16 +336,16 @@
         <dl class="case__res"><div><dt>Resultado</dt><dd>Startup participante</dd></div><div><dt>Estreia</dt><dd>5 de setembro, 21h15</dd></div></dl>
       </div>
     </div>
-    <div class="reel" data-reel>
+    <div class="reel" data-reel data-anim>
       <div class="reel__track">
-        <figure><img src="img/batalha-junia.jpg" width="1500" height="1500" alt="Júnia Krauspenhar no cenário do Batalha das Startups" loading="lazy"></figure>
-        <figure><img src="img/batalha-janguie.jpg" width="1500" height="1500" alt="Júnia ao lado de Janguiê Diniz no set" loading="lazy"></figure>
-        <figure><img src="img/batalha-palco.jpg" width="1500" height="1500" alt="Participantes no palco do programa" loading="lazy"></figure>
-        <figure><img src="img/batalha-set.jpg" width="1500" height="1500" alt="Júnia no set de gravação" loading="lazy"></figure>
-        <figure><img src="img/batalha-teleprompter.jpg" width="1500" height="1500" alt="Teleprompter: Firma o passo. Pega o ritmo. Seja obstinado que dá!" loading="lazy"></figure>
-        <figure><img src="img/batalha-plateia.jpg" width="1280" height="1280" alt="Plateia e participantes do Batalha das Startups" loading="lazy"></figure>
-        <figure><img src="img/batalha-livro.jpg" width="1500" height="1500" alt="Livro O Código Secreto da Riqueza autografado" loading="lazy"></figure>
-        <figure><img src="img/batalha-grupo.jpg" width="1206" height="1206" alt="Foto de grupo das startups participantes" loading="lazy"></figure>
+        <figure><img src="img/reel-junia.webp" width="440" height="440" decoding="async" alt="Júnia Krauspenhar no cenário do Batalha das Startups" loading="lazy" decoding="async"></figure>
+        <figure><img src="img/reel-janguie.webp" width="440" height="440" decoding="async" alt="Júnia ao lado de Janguiê Diniz no set" loading="lazy" decoding="async"></figure>
+        <figure><img src="img/reel-palco.webp" width="440" height="440" decoding="async" alt="Participantes no palco do programa" loading="lazy" decoding="async"></figure>
+        <figure><img src="img/reel-set.webp" width="440" height="440" decoding="async" alt="Júnia no set de gravação" loading="lazy" decoding="async"></figure>
+        <figure><img src="img/reel-teleprompter.webp" width="440" height="440" decoding="async" alt="Teleprompter: Firma o passo. Pega o ritmo. Seja obstinado que dá!" loading="lazy" decoding="async"></figure>
+        <figure><img src="img/reel-plateia.webp" width="440" height="440" decoding="async" alt="Plateia e participantes do Batalha das Startups" loading="lazy" decoding="async"></figure>
+        <figure><img src="img/reel-livro.webp" width="440" height="440" decoding="async" alt="Livro O Código Secreto da Riqueza autografado" loading="lazy" decoding="async"></figure>
+        <figure><img src="img/reel-grupo.webp" width="440" height="440" decoding="async" alt="Foto de grupo das startups participantes" loading="lazy" decoding="async"></figure>
       </div>
       <p class="reel__cap">“Dias incríveis com pessoas incríveis! Ideias transformadoras, disputas acirradas, conexões, inspiração, aprendizado e muita gratidão por viver tudo isso!”</p>
     </div>
@@ -351,7 +353,7 @@
 
   <article class="case case--b" data-case data-rise>
     <div class="case__card">
-      <div class="case__media"><img src="img/founders-club.jpg" width="1080" height="1366" alt="Celulose 360° selecionada no Founders Club Growth Challenge" loading="lazy"></div>
+      <div class="case__media"><img src="img/founders-club.webp" width="900" height="1138" decoding="async" alt="Celulose 360° selecionada no Founders Club Growth Challenge" loading="lazy" decoding="async"></div>
       <div class="case__body">
         <p class="case__meta"><span>case 02</span><span>jun 2026</span><span>Founders Club</span></p>
         <h3>Growth Challenge</h3>
@@ -364,7 +366,7 @@
 
   <article class="case case--c" data-case data-rise>
     <div class="case__card">
-      <div class="case__media"><img src="img/base44.jpg" width="1080" height="1440" alt="Portal Celulose 360° no notebook e kit Base44 Maker" loading="lazy"></div>
+      <div class="case__media"><img src="img/base44.webp" width="900" height="1200" decoding="async" alt="Portal Celulose 360° no notebook e kit Base44 Maker" loading="lazy" decoding="async"></div>
       <div class="case__body">
         <p class="case__meta"><span>case 03</span><span>ago 2026</span><span>Base44</span></p>
         <h3>A plataforma no ar</h3>
@@ -380,7 +382,7 @@
 <section class="founder" id="fundadora" data-hd-zone="light">
   <div class="founder__grid">
     <div class="founder__photo" data-rise>
-      <img src="img/junia-poster.jpg" width="720" height="1280" alt="Júnia Krauspenhar, fundadora da Celulose 360°" loading="lazy">
+      <img src="img/junia-poster.webp" decoding="async" width="720" height="1280" alt="Júnia Krauspenhar, fundadora da Celulose 360°" loading="lazy" decoding="async">
     </div>
     <div class="founder__text">
       <p class="tag">06 · fundadora</p>
@@ -422,7 +424,7 @@
 </main>
 
 <footer class="ft">
-  <img src="img/logo.png" width="555" height="413" alt="Celulose 360°" loading="lazy">
+  <img src="img/logo.webp" width="242" height="180" alt="Celulose 360°" loading="lazy" decoding="async">
   <p>EdTech para Indústria de Celulose.<br>Desenvolvendo pessoas. Gerando valor. Construindo o futuro.</p>
   <nav><a href="https://celulose360.com" target="_blank" rel="noopener">celulose360.com</a><a href="https://www.instagram.com/celulose360_/" target="_blank" rel="noopener">Instagram</a></nav>
   <small>© 2026 Celulose 360°</small>
@@ -438,9 +440,9 @@
   <video playsinline controls preload="none" data-film-video></video>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="main.js?v=2"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script defer src="main.js?v=3"></script>
 </body>
 </html>

@@ -46,7 +46,7 @@
 
   /* ---------- hero frame sequence ---------- */
   const FRAMES = 134;
-  const canvas = $('[data-seq]'), ctx = canvas.getContext('2d');
+  const canvas = $('[data-seq]'), ctx = canvas.getContext('2d', { alpha: false });
   const frames = new Array(FRAMES);
   const src = i => `img/frames/${String(i).padStart(3, '0')}.webp`;
   let want = 0, drawn = -1;
@@ -127,16 +127,18 @@
   const sp = $('[data-spores]'), sx = sp.getContext('2d');
   let parts = [], spW = 0, spH = 0, heroVisible = true;
   const resizeSp = () => {
-    const dpr = Math.min(devicePixelRatio || 1, 2);
+    const dpr = Math.min(devicePixelRatio || 1, 1.5);
     spW = sp.clientWidth; spH = sp.clientHeight;
     sp.width = spW * dpr; sp.height = spH * dpr; sx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const n = PHONE() ? 34 : 70;
+    const n = PHONE() ? 26 : 60;
     parts = Array.from({ length: n }, () => ({ x: Math.random() * spW, y: Math.random() * spH, r: Math.random() * 1.8 + .4, vx: (Math.random() - .5) * .18, vy: -(Math.random() * .25 + .05), a: Math.random() * .5 + .15, ph: Math.random() * 6.28 }));
   };
   let mx = 0, my = 0;
   addEventListener('pointermove', e => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; }, { passive: true });
+  let spRunning = false;
   const tickSp = t => {
-    if (heroVisible) {
+    if (!heroVisible || document.hidden) { spRunning = false; return; }
+    {
       sx.clearRect(0, 0, spW, spH);
       for (const p of parts) {
         p.x += p.vx + Math.sin(t / 1400 + p.ph) * .15 + mx * .25;
@@ -148,11 +150,14 @@
         sx.fill();
       }
     }
-    if (motion) requestAnimationFrame(tickSp);
+    requestAnimationFrame(tickSp);
   };
+  const startSp = () => { if (motion && !spRunning && heroVisible) { spRunning = true; requestAnimationFrame(tickSp); } };
   resizeSp();
-  addEventListener('resize', resizeSp);
-  if (motion) requestAnimationFrame(tickSp);
+  let rsT;
+  addEventListener('resize', () => { clearTimeout(rsT); rsT = setTimeout(resizeSp, 200); });
+  document.addEventListener('visibilitychange', startSp);
+  startSp();
 
   /* ---------- word fill (manifesto) ---------- */
   const mt = $('[data-words]');
@@ -165,6 +170,9 @@
     if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
   }), { rootMargin: '0px 0px -12% 0px' });
   $$('[data-rise], [data-speech]').forEach(el => io.observe(el));
+
+  const animIO = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('is-off', !e.isIntersecting)));
+  $$('[data-anim]').forEach(el => { el.classList.add('is-off'); animIO.observe(el); });
 
   /* ---------- microscópio ---------- */
   const lens = $$('[data-lens]'), scopeN = $('[data-scope-n]');
@@ -219,8 +227,9 @@
 
   /* ---------- videos ---------- */
   const vid = $('[data-autovid]'), sb = $('[data-sound]');
+  const juniaSrc = () => PHONE() ? vid.dataset.srcM : vid.dataset.src;
   const vIO = new IntersectionObserver(es => es.forEach(e => {
-    if (e.isIntersecting) { vid.preload = 'auto'; vid.play().catch(() => {}); } else vid.pause();
+    if (e.isIntersecting) { if (!vid.src) vid.src = juniaSrc(); vid.play().catch(() => {}); } else vid.pause();
   }), { threshold: .35 });
   vIO.observe(vid);
   const setSound = on => {
@@ -229,7 +238,7 @@
     sb.querySelector('span').textContent = on ? 'Som ligado' : 'Ativar som';
     sb.setAttribute('aria-label', on ? 'Desativar som' : 'Ativar som');
   };
-  sb.addEventListener('click', () => { setSound(vid.muted); if (!vid.muted) { vid.currentTime = 0; vid.play().catch(() => {}); } });
+  sb.addEventListener('click', () => { if (!vid.src) vid.src = juniaSrc(); setSound(vid.muted); if (!vid.muted) { vid.currentTime = 0; vid.play().catch(() => {}); } });
 
   const film = $('[data-film-panel]'), fv = $('[data-film-video]');
   const openFilm = (file, poster) => {
@@ -238,8 +247,8 @@
     fv.play().catch(() => {});
   };
   const closeFilm = () => { fv.pause(); fv.removeAttribute('src'); fv.load(); film.hidden = true; lock(false); };
-  $$('[data-film], [data-film-dock]').forEach(b => b.addEventListener('click', () => openFilm('video/floresta.mp4', 'img/floresta-poster.jpg')));
-  $('[data-junia]').addEventListener('click', () => openFilm('video/junia.mp4', 'img/junia-poster.jpg'));
+  $$('[data-film], [data-film-dock]').forEach(b => b.addEventListener('click', () => openFilm('video/floresta.mp4', 'img/floresta-poster.webp')));
+  $('[data-junia]').addEventListener('click', () => openFilm(juniaSrc(), 'img/junia-poster.webp'));
   $('[data-film-close]').addEventListener('click', closeFilm);
   film.addEventListener('click', e => { if (e.target === film) closeFilm(); });
   addEventListener('keydown', e => { if (e.key === 'Escape') { if (!film.hidden) closeFilm(); closeMenu(); } });
@@ -256,7 +265,7 @@
       trigger: '[data-hero]', start: 'top top', end: 'bottom bottom',
       onUpdate: s => heroUpdate(s.progress),
     });
-    ScrollTrigger.create({ trigger: '[data-hero]', start: 'top bottom', end: 'bottom top', onToggle: s => { heroVisible = s.isActive; } });
+    ScrollTrigger.create({ trigger: '[data-hero]', start: 'top bottom', end: 'bottom top', onToggle: s => { heroVisible = s.isActive; startSp(); } });
 
     if (motion) {
       gsap.to('.hero__copy', { yPercent: -14, opacity: .15, ease: 'none', scrollTrigger: { trigger: '[data-hero]', start: '62% bottom', end: 'bottom bottom', scrub: true } });
